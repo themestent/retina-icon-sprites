@@ -13,6 +13,9 @@
 @import "variables";
 @import "mixins";
 
+// Retina Sprite Mixins
+@import "retina-sprite-mixins";
+
 @import "modular";
 /* Including rem sizing mixins */
 @import "rem";
@@ -87,12 +90,17 @@ p.drop-cap,.site-title,.dl-list,.main-section-holder,.contributors-container,.sp
   }
 }
 
+// Figure
+
+figure{
+  @include rem('margin-bottom',30px);
+}
 figurecaption{
   display: block;
   color:$figurecaptionColor;
   background-color:$figurecaptionBackgroundColor;
   padding:0.2em 0.5em;
-  text-shadow: 0px 1px 0px rgba(1,1,1,0.3)
+  text-shadow: 0px 1px 0px rgba(1,1,1,0.3);
 }
 
 // Body Background
@@ -118,8 +126,8 @@ body{
     float: right;
     margin-top:1.5em;
 
-    background:url(../img/food-icons/header-food-badge-normal.png);
-    @include image-2x("../img/food-icons/header-food-badge-retina.png");
+    background:url(http://commondatastorage.googleapis.com/ttf-icons%2Fheader-food-badge-normal.png);
+    @include image-2x("http://commondatastorage.googleapis.com/ttf-icons%2Fheader-food-badge-retina.png");
     @include background-size(133px 150px);
     background-repeat: no-repeat;
     background-position: 0;
@@ -349,6 +357,12 @@ body{
     a{
       color:#f5ee90;
       text-decoration: none;
+    }
+  }
+
+  .meta-bar li{
+     .twitter-follow-button{
+      margin-bottom: -4px;
     }
   }
 }

@@ -1,0 +1,118 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// GENERAL STYLES
+// --------------
+
+// Make all forms have space below them
+form {
+
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+// Groups of fields with labels on top (legends)
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  color: $grayDark;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+
+  // Small
+  small {
+      }
+}
+
+// Set font for forms
+label,
+input,
+button,
+select,
+textarea {
+   // Set size, weight, line-height here
+}
+input,
+button,
+select,
+textarea {
+   // And only set font-family here for those that need it (note the missing label element)
+}
+
+// Identify controls by their labels
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+// Everything else
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"]{
+
+  color: $grayLight;
+  background-color: $inputBackground;
+  border: 1px solid $inputBorder;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include transition(border linear .2s, box-shadow linear .2s);
+  // Focus state
+  &:focus {
+    border-color: rgba(82,168,236,.8);
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6));
+  }
+  -webkit-font-smoothing: antialiased;
+}
+
+// Placeholder
+// -------------------------
+
+// Placeholder text gets special styles because when browsers invalidate entire lines if it doesn't understand a selector
+input,
+textarea {
+  @include placeholder();
+}
+
+/* Custom Elements */
+.email-inline{
+  input[type="text"],input[type="email"]{
+    @include border-radius(4px 0px 0px 4px);
+    padding:8px 12px;
+  }
+  .btn{
+    @include inline-block;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+    padding:8px 12px;
+    margin-left:-5px;
+    border: 1px solid $inputBorder;
+    border-left-width: 0px;
+    @include border-radius(0px 4px 4px 0px);
+    -webkit-appearance: button;
+    -webkit-box-align: center;
+    @include box-sizing(border-box);
+    -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+  }
+}

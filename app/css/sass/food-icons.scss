@@ -1,0 +1,75 @@
+@import "compass/css3";
+@import "compass/typography";
+
+/* Core Variables & Mixins */
+@import "variables";
+@import "mixins";
+@import "retina-sprite-mixins";
+
+/* Bourbon */
+@import "bourbon/bourbon";
+//  Food Icons
+
+$food-icon-normal: sprite-map("food-icons/120/normal/*.png");
+$food-icon-retina: sprite-map("food-icons/120/retina/*.png");
+
+[class^="icon-"],
+[class*=" icon-"]{
+  display: block;
+  @include size(120);
+}
+
+.icon-beer{
+  @include retina-sprite-background(beer,$food-icon-normal,$food-icon-retina);
+}
+.icon-berry{
+  @include retina-sprite-background(berry,$food-icon-normal,$food-icon-retina);
+}
+.icon-bone{
+  @include retina-sprite-background(bone,$food-icon-normal,$food-icon-retina);
+}
+.icon-bowl{
+  @include retina-sprite-background(bowl,$food-icon-normal,$food-icon-retina);
+}
+.icon-burger{
+  @include retina-sprite-background(burger,$food-icon-normal,$food-icon-retina);
+}
+.icon-cone-icecream{
+  @include retina-sprite-background(cone-icecream,$food-icon-normal,$food-icon-retina);
+}
+.icon-doughnut{
+  @include retina-sprite-background(doughnut,$food-icon-normal,$food-icon-retina);
+}
+.icon-drinks{
+  @include retina-sprite-background(drinks,$food-icon-normal,$food-icon-retina);
+}
+.icon-egg-poach{
+  @include retina-sprite-background(egg-poach,$food-icon-normal,$food-icon-retina);
+}
+.icon-hotdog{
+  @include retina-sprite-background(hotdog,$food-icon-normal,$food-icon-retina);
+}
+.icon-juice{
+  @include retina-sprite-background(juice,$food-icon-normal,$food-icon-retina);
+}
+.icon-lemon{
+  @include retina-sprite-background(lemon,$food-icon-normal,$food-icon-retina);
+}
+.icon-lemon-2{
+  @include retina-sprite-background(lemon-2,$food-icon-normal,$food-icon-retina);
+}
+.icon-lollipop{
+  @include retina-sprite-background(lollipop,$food-icon-normal,$food-icon-retina);
+}
+.icon-pomegranete{
+  @include retina-sprite-background(pomegranete,$food-icon-normal,$food-icon-retina);
+}
+.icon-popcorn{
+  @include retina-sprite-background(popcorn,$food-icon-normal,$food-icon-retina);
+}
+.icon-pumpkin{
+  @include retina-sprite-background(pumpkin,$food-icon-normal,$food-icon-retina);
+}
+.icon-watermelon{
+  @include retina-sprite-background(watermelon,$food-icon-normal,$food-icon-retina);
+}

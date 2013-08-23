@@ -1,0 +1,33 @@
+.middle{
+    text-align: center;
+}
+
+// Fade
+.fade{
+    display: none;
+}
+
+// Display In
+.in{
+    display: block;
+}
+
+// Extra bottom margin
+.row-spaces{
+    margin-bottom: 3em;
+}
+
+// Centerize A block
+.centerize{
+    margin: 0 auto;
+    text-align: center;
+}
+
+// Horizontal List
+ul.hlist{
+    @include horizontal-list();
+    > li{
+        @include inline-block-list-item(1em);
+        padding-left: 0;
+    }
+}

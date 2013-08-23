@@ -1,0 +1,77 @@
+    /*!
+    * ThemesTent Framework v0.1
+    *
+    * Copyright 2012 ThemesTent, Bangladesh
+    *
+    * Designed and built with passion by @themestent
+    */
+    @import "compass/css3";
+    @import "compass/typography";
+    /* CSS Reset */
+    @import "reset";
+
+    @import url(http://fonts.googleapis.com/css?family=PT+Sans|Open+Sans+Condensed:700);
+
+    // Typography Template
+    @import "../../components/typeplate/scss/typeplate";
+
+    // Importing ThemesTent Native Source Icon
+    // It is optional
+    @import "ttf-icon";
+
+    /* Core Variables & Mixins */
+    @import "variables";
+    @import "mixins";
+
+    /* Bourbon */
+    @import "bourbon/bourbon";
+
+    // Scaffolding
+    @import "scaffolding";
+
+
+    /* Global Styles */
+    @import "global";
+
+    /* Grid System and page structure */
+    @import "grid";
+
+
+    /* Layouts Style */
+    @import "layouts";
+    @import "responsive";
+
+    /* Base Components */
+    // @import "code";
+    @import "form";
+
+    /* Common Components */
+    @import "dropdowns";
+
+    @import "retina";
+    @import "modular";
+    @import "helper";
+
+
+    /* Buttons Style */
+    @import "buttons";
+    @import "buttons-group";
+
+    // Components: Nav
+    @import "navs";
+    //@import "navbar";
+
+    // Thumbnails
+    @import "thumbnails";
+
+    /* bxSlider */
+    // @import "bxslider";
+
+    @import "animate";
+
+    body{
+
+    }
+
+    [class*="ittf-"]{
+    }

@@ -1,0 +1,5 @@
+codekit-config.json
+*.scssc
+**/node_modules
+
+*.sassc

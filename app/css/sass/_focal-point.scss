@@ -1,0 +1,226 @@
+// =============================================================================
+// Focal Point: Pure HTML/CSS Adaptive Images Framework
+// Author: Adam Bradley, Daniel Guillan, 2012
+// License: MIT/GPLv2
+// https://github.com/adamdbradley/focal-point
+//
+// A mixin to take full control of Focal Point:
+//    - Custom grid (more or less precision/classnames)
+//    - Generate landscape and/or portrait classes
+//    - Custom media query breakpoint
+//    - Custom inner html element
+//    - Custom default zoom factor
+//    - Additional zoom levels
+//
+// Usage:
+//   // import focal-point
+//   @import 'focal-point';
+//
+//   // Include the mixin and tweak the settings if needed
+//   @include focal-point(
+//      $grid: 12,
+//      $landscape-classes: true,
+//      $portrait-classes: true,
+//      $breakpoint: 767px,
+//      $inner-element: div,
+//      $zoom-factor: 1,
+//      $zoom-levels: 1
+//      );
+//
+// =============================================================================
+
+// =============================================================================
+// Table of contents:
+// 1. Variables
+// 2. Base classes
+// 3. Landscape classes
+// 4. Portrait classes
+// =============================================================================
+
+@mixin focal-point(
+        $grid: 12,
+        $landscape-classes: true,
+    $portrait-classes: true,
+    $breakpoint: 767px,
+    $inner-element: div,
+    $zoom-factor: 1,
+    $zoom-levels: 1
+    ) {
+
+    // =============================================================================
+    // 1. Variables
+    // =============================================================================
+
+    // Check if $grid is even and at least 2. If not, warn and reset grid to default.
+    @if (type-of($grid) != number) or ($grid < 2) or ($grid / 2 != round($grid / 2)) {
+        @warn 'Focal Point grid should be an even number (4, 6, 8, …). Using default grid instead (12).';
+        $grid: 12;
+    }
+
+    $half-grid: $grid / 2;
+    $h: (4 * $zoom-factor);
+    $v: (3 * $zoom-factor);
+    $vertical-size: $v * 2;
+    $horizontal-size: $h * 2;
+    $step1: $vertical-size / $grid;
+    $step2: $horizontal-size / $grid;
+
+    // =============================================================================
+    // 2. Base classes
+    // =============================================================================
+
+    .focal-point {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .focal-point img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        -ms-interpolation-mode: bicubic;
+    }
+
+    .focal-point #{$inner-element} {
+        position: relative;
+        max-width: none;
+        height: auto;
+    }
+
+
+    @media all and (max-width: $breakpoint) {
+
+    // =============================================================================
+    // 3. Landscape classes
+    // =============================================================================
+
+    @if $landscape-classes {
+
+        // Base zoom
+        // =============================================================================
+
+        .focal-point #{$inner-element} {
+        margin: -#{$v}em -#{$h}em;
+        }
+
+        // Landscape zoom levels
+            // =============================================================================
+
+        .focal-point {
+        @for $i from 2 through $zoom-levels {
+            &.zoom-#{$i} {
+            #{$inner-element} {
+                margin: -#{($v * $i)}em -#{($h * $i)}em;
+            }
+            }
+        }
+        }
+
+        // Landscape classes
+            // =============================================================================
+
+        @for $i from 1 through $half-grid {
+
+        $margin1: $vertical-size - ($step1 * ($half-grid - $i));
+        $margin2: $horizontal-size - ($step2 * ($half-grid - $i));
+        $margin-op1: $step1 * ($half-grid - $i);
+        $margin-op2: $step2 * ($half-grid - $i);
+
+        @for $n from 1 through $zoom-levels {
+
+            $zoom: '';
+            @if $n > 1 {
+            $zoom: '.zoom-' + $n;
+            }
+
+            #{$zoom}.down-#{$i} #{$inner-element} {
+               margin-top: -#{$margin1 * $n}em;
+            margin-bottom: -#{$margin-op1 * $n}em;
+            }
+
+            #{$zoom}.up-#{$i} #{$inner-element} {
+               margin-top: -#{$margin-op1 * $n}em;
+            margin-bottom: -#{$margin1 * $n}em;
+            }
+
+            #{$zoom}.right-#{$i} #{$inner-element} {
+             margin-left: -#{$margin2 * $n}em;
+            margin-right: -#{$margin-op2 * $n}em;
+            }
+
+            #{$zoom}.left-#{$i} #{$inner-element} {
+             margin-left: -#{$margin-op2 * $n}em;
+            margin-right: -#{$margin2 * $n}em;
+            }
+                }
+        }
+    }
+
+    // =============================================================================
+    // 4. Portrait classes
+    // =============================================================================
+
+    @if $portrait-classes {
+
+        // Base zoom
+        // =============================================================================
+
+        .portrait.focal-point #{$inner-element} {
+        margin: -#{$h}em -#{$v}em;
+            }
+
+        // Portrait zoom levels
+            // =============================================================================
+
+        .portrait.focal-point {
+        @for $i from 2 through $zoom-levels {
+            &.zoom-#{$i} {
+            #{$inner-element} {
+                margin: -#{($h * $i)}em -#{($v * $i)}em;
+            }
+            }
+        }
+        }
+
+        // Portrait classes
+            // =============================================================================
+
+        @for $i from 1 through $half-grid {
+
+        $margin1: $vertical-size - ($step1 * ($half-grid - $i));
+        $margin2: $horizontal-size - ($step2 * ($half-grid - $i));
+        $margin-op1: $step1 * ($half-grid - $i);
+        $margin-op2: $step2 * ($half-grid - $i);
+
+        @for $n from 1 through $zoom-levels {
+
+            $zoom: '';
+            @if $n > 1 {
+            $zoom: '.zoom-' + $n;
+            }
+
+            #{$zoom}.portrait.down-#{$i} #{$inner-element} {
+               margin-top: -#{$margin2 * $n}em;
+            margin-bottom: -#{$margin-op2 * $n}em;
+            }
+
+            #{$zoom}.portrait.up-#{$i} #{$inner-element} {
+               margin-top: -#{$margin-op2 * $n}em;
+            margin-bottom: -#{$margin2 * $n}em;
+            }
+
+            #{$zoom}.portrait.right-#{$i} #{$inner-element} {
+             margin-left: -#{$margin1 * $n}em;
+            margin-right: -#{$margin-op1 * $n}em;
+            }
+
+            #{$zoom}.portrait.left-#{$i} #{$inner-element} {
+             margin-left: -#{$margin-op1 * $n}em;
+            margin-right: -#{$margin1 * $n}em;
+            }
+        }
+            }
+        }
+    }
+}

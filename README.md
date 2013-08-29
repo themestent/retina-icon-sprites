@@ -3,4 +3,8 @@
 Retina Icon Sprites - Sass Mixins
 ===================
 
-Easy to use Css Icon Sprites plugin with Retina display support.
+Easy to use Sass mixins for creating Css Icon Sprites plugin with Retina display support.
+
+Detailed Documentation
+===================
+Read [ How to use Retina Icon Sprites Sass Mixins ](http://themestent.github.io/retina-icon-sprites/)

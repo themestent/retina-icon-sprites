@@ -168,18 +168,17 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>/img',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: '<%= yeoman.dist %>/img'
+          dest: '<%= yeoman.app %>/img'
         }]
       }
     },
     cssmin: {
-      dist: {
-        files: {
-          '<%= yeoman.dist %>/css/app.css': [
-            '.tmp/css/{,*/}*.css',
-            '<%= yeoman.app %>/css/{,*/}*.css'
-          ]
-        }
+      minify: {
+        expand: true,
+        cwd: '<%= yeoman.app %>/css/',
+        src: ['*.css', '!*.min.css'],
+        dest: '<%= yeoman.app %>/css/',
+        ext: '.min.css'
       }
     },
     htmlmin: {

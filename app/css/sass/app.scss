@@ -49,6 +49,9 @@ a{
     @include transition(all 200ms ease);
   }
 }
+#gitBash a > strong{
+  color:darken($bodyLinkColor,30%);
+}
 h1,h2,h3,h4,h5,h6{
   @include open-font();
   color: $bodyHeaderColor;

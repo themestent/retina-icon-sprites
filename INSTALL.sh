@@ -2,8 +2,8 @@
 # Special Thanks to Amzad Hossain (https://www.facebook.com/tohin)
 # For creating this Awesome Installer package
 
-echo "Step 1: Installing Necessary Gems"
-gem install compass sass
+echo "Step 1: Installing Compass"
+npm install compass
 
 echo '*****************************************';
 echo '*****     Sass/Compass Installed    *****';

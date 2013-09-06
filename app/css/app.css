@@ -530,9 +530,7 @@ body {
   margin-bottom: 0.9375em;
   background: #47c9af;
   background: rgba(71, 201, 175, 0.6);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  opacity: 70%; }
+  padding: 5px 10px; }
   .footer-header-section h1 {
     font-size: 18px;
     color: #eff3f3;

@@ -305,9 +305,7 @@ body{
   margin-bottom: em(15);
   background:$footerHeaderBackgroundColor;
   background: rgba(71,201,175,0.6);
-  padding-top:5px;
-  padding-bottom: 5px;
-  opacity:70%;
+  padding:5px 10px;
   h1{
     font-size:18px;
     color: $footerTextColor;

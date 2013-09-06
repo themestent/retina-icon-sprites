@@ -3,7 +3,7 @@
 # For creating this Awesome Installer package
 
 echo "Step 1: Installing Necessary Gems"
-gem install compass sass
+npm install compass
 
 echo '*****************************************';
 echo '*****     Sass/Compass Installed    *****';

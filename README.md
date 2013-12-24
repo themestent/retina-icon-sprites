@@ -8,3 +8,7 @@ Easy to use Sass mixins for creating Css Icon Sprites plugin with Retina display
 Detailed Documentation
 ===================
 Read [ How to use Retina Icon Sprites Sass Mixins ](http://themestent.github.io/retina-icon-sprites/)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/themestent/retina-icon-sprites/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
